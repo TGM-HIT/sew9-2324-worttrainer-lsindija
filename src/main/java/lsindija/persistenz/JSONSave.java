@@ -12,7 +12,17 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+/**
+ * Diese Speichermethode speichert Daten über JSON Files
+ * @author Leon Sindija
+ * @version 2023-09-22
+ */
 public class JSONSave implements PersistenceMethod {
+
+    /**
+     * Ladet den gespeicherten Worttrainer
+     * @return Den geladenen Worttrainer
+     */
     @Override
     public Rechtschreibtrainer load() {
         JSONObject jsonObject;
@@ -33,6 +43,10 @@ public class JSONSave implements PersistenceMethod {
         return trainer;
     }
 
+    /**
+     * Speichert den Worttrainer
+     * @param trainer Der Worttrainer der gespeichert werden soll
+     */
     @Override
     public void save(Rechtschreibtrainer trainer) {
         JSONObject trainerObject = new JSONObject();
