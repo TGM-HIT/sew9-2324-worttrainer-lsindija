@@ -21,6 +21,7 @@ public class Rechtschreibtrainer {
     public Rechtschreibtrainer() {
         this.richtig = 0;
         this.gesamt = 0;
+        this.woerter = new Wort[]{new Wort("Apfel","https://images.eatsmarter.de/sites/default/files/styles/576x432/public/apfel-576x432.jpg"),new Wort("Banane","https://www.kindersache.de/sites/default/files/styles/teaser/public/banana-42793_1280.jpg?itok=TbRV17I6")};
     }
 
     /**
@@ -49,7 +50,7 @@ public class Rechtschreibtrainer {
         if(ausgewaehlt == null) return false;
 
         gesamt += 1;
-        if(ausgewaehlt.getWort().equals(wort)) {
+        if(ausgewaehlt.getWort().equalsIgnoreCase(wort)) {
             auswaehlen();
             richtig += 1;
             return true;

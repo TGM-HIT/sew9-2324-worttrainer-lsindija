@@ -12,10 +12,19 @@ import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+/**
+ * Die Klasse der GUI Umsetzung
+ * @author Leon Sindija
+ * @version 2023-09-22
+ */
 public class WorttrainerFrame extends JFrame {
     private JTextField textField;
     private JLabel imageLabel;
 
+    /**
+     * Das Worttrainer Fenster wird erstellt
+     * @param trainer Das Worttrainer Model welches mit dem Fenster verbunden ist
+     */
     public WorttrainerFrame(Rechtschreibtrainer trainer) {
         super("Worttrainer");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

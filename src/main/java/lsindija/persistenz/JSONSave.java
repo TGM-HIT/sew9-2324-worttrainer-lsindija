@@ -29,12 +29,6 @@ public class JSONSave implements PersistenceMethod {
         Rechtschreibtrainer trainer = new Rechtschreibtrainer();
         try {
             jsonObject = new JSONObject(new String(Files.readAllBytes(Paths.get(new File("save.json").toURI()))));
-            JSONArray woerter = jsonObject.getJSONArray("woerter");
-            Wort[] woerterArray = new Wort[woerter.length()];
-            for(int i = 0; i < woerter.length(); i++) {
-                woerterArray[i] = new Wort(woerter.getJSONObject(i).getString("wort"), woerter.getJSONObject(i).getString("image"));
-            }
-            trainer.setWoerter(woerterArray);
             trainer.setGesamt(jsonObject.getInt("gesamt"));
             trainer.setRichtig(jsonObject.getInt("richtig"));
         } catch (IOException e) {
@@ -50,7 +44,6 @@ public class JSONSave implements PersistenceMethod {
     @Override
     public void save(Rechtschreibtrainer trainer) {
         JSONObject trainerObject = new JSONObject();
-        trainerObject.put("woerter",trainer.getWoerter());
         trainerObject.put("richtig",trainer.getRichtig());
         trainerObject.put("gesamt",trainer.getGesamt());
 
