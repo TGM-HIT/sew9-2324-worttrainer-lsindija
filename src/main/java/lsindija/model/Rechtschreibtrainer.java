@@ -21,7 +21,12 @@ public class Rechtschreibtrainer {
     public Rechtschreibtrainer() {
         this.richtig = 0;
         this.gesamt = 0;
-        this.woerter = new Wort[]{new Wort("Apfel","https://images.eatsmarter.de/sites/default/files/styles/576x432/public/apfel-576x432.jpg"),new Wort("Banane","https://www.kindersache.de/sites/default/files/styles/teaser/public/banana-42793_1280.jpg?itok=TbRV17I6")};
+        this.woerter = new Wort[]{
+                new Wort("Apfel","https://images.eatsmarter.de/sites/default/files/styles/576x432/public/apfel-576x432.jpg"),
+                new Wort("Banane","https://www.kindersache.de/sites/default/files/styles/teaser/public/banana-42793_1280.jpg?itok=TbRV17I6"),
+                new Wort("Pfirsich","https://www.online-gartencenter.at/8738/pfirsich-kernechte-von-vorgebirge.jpg"),
+                new Wort("Ananas", "https://cdn.gurkerl.at/images/grocery/products/7957/7957-1603471900844.jpg")
+        };
     }
 
     /**
