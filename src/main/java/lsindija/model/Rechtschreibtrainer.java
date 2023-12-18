@@ -1,138 +1,138 @@
-package lsindija.model;
+    package lsindija.model;
 
-import java.util.Random;
-
-/**
- * Die Worttrainer Model Klasse
- * @author Leon Sindija
- * @version 2023-09-22
- */
-public class Rechtschreibtrainer {
-    private Wort[] woerter;
-    private Wort ausgewaehlt;
-
-    private int richtig;
-    private int gesamt;
-
+    import java.util.Random;
 
     /**
-     * Das Worttrainer Spiel wird erstellt
+     * Die Worttrainer Model Klasse
+     * @author Leon Sindija
+     * @version 2023-09-22
      */
-    public Rechtschreibtrainer() {
-        this.richtig = 0;
-        this.gesamt = 0;
-        this.woerter = new Wort[]{
-                new Wort("Apfel","https://images.eatsmarter.de/sites/default/files/styles/576x432/public/apfel-576x432.jpg"),
-                new Wort("Banane","https://www.kindersache.de/sites/default/files/styles/teaser/public/banana-42793_1280.jpg?itok=TbRV17I6"),
-                new Wort("Pfirsich","https://www.online-gartencenter.at/8738/pfirsich-kernechte-von-vorgebirge.jpg"),
-                new Wort("Ananas", "https://cdn.gurkerl.at/images/grocery/products/7957/7957-1603471900844.jpg")
-        };
-    }
+    public class Rechtschreibtrainer {
+        private Wort[] woerter;
+        private Wort ausgewaehlt;
 
-    /**
-     * Es wird ein bestimmtes Wort anhand von einem Index ausgewählt
-     * @param index Der Index des Worts welches ausgewählt werden soll
-     */
-    public void auswaehlen(int index) {
-        ausgewaehlt = woerter[index];
-    }
+        private int richtig;
+        private int gesamt;
 
-    /**
-     * Es wird ein zufälliges Wort aus der Wortliste ausgewählt
-     */
-    public void auswaehlen() {
-        Random random = new Random();
-        int index = random.nextInt(woerter.length);
-        auswaehlen(index);
-    }
 
-    /**
-     * Es wird überprüft ob das übergebene Wort mit dem ausgewählten Wort übereinstimmt
-     * @param wort Das Wort welches mit dem ausgewählten Wort verglichen werden soll
-     * @return Ob das übergebene Wort mit dem ausgewählten Wort übereinstimmt
-     */
-    public boolean check(String wort) {
-        if(ausgewaehlt == null) return false;
-
-        gesamt += 1;
-        if(ausgewaehlt.getWort().equalsIgnoreCase(wort)) {
-            auswaehlen();
-            richtig += 1;
-            return true;
+        /**
+         * Das Worttrainer Spiel wird erstellt
+         */
+        public Rechtschreibtrainer() {
+            this.richtig = 0;
+            this.gesamt = 0;
+            this.woerter = new Wort[]{
+                    new Wort("Apfel","https://images.eatsmarter.de/sites/default/files/styles/576x432/public/apfel-576x432.jpg"),
+                    new Wort("Banane","https://www.kindersache.de/sites/default/files/styles/teaser/public/banana-42793_1280.jpg?itok=TbRV17I6"),
+                    new Wort("Pfirsich","https://www.online-gartencenter.at/8738/pfirsich-kernechte-von-vorgebirge.jpg"),
+                    new Wort("Ananas", "https://cdn.gurkerl.at/images/grocery/products/7957/7957-1603471900844.jpg")
+            };
         }
-        return false;
-    }
 
-    /**
-     * Gibt die Wortliste zurück
-     * @return Die Wortliste
-     */
-    public Wort[] getWoerter() {
-        return woerter;
-    }
+        /**
+         * Es wird ein bestimmtes Wort anhand von einem Index ausgewählt
+         * @param index Der Index des Worts welches ausgewählt werden soll
+         */
+        public void auswaehlen(int index) {
+            ausgewaehlt = woerter[index];
+        }
 
-    /**
-     * Setzt die Wortliste
-     * @param woerter Die neue Wortliste
-     */
-    public void setWoerter(Wort[] woerter) {
-        this.woerter = woerter;
-    }
+        /**
+         * Es wird ein zufälliges Wort aus der Wortliste ausgewählt
+         */
+        public void auswaehlen() {
+            Random random = new Random();
+            int index = random.nextInt(woerter.length);
+            auswaehlen(index);
+        }
 
-    /**
-     * Gibt das ausgewählte Wort zurück
-     * @return Das ausgewählte Wort
-     */
-    public Wort getAusgewaehlt() {
-        return ausgewaehlt;
-    }
+        /**
+         * Es wird überprüft ob das übergebene Wort mit dem ausgewählten Wort übereinstimmt
+         * @param wort Das Wort welches mit dem ausgewählten Wort verglichen werden soll
+         * @return Ob das übergebene Wort mit dem ausgewählten Wort übereinstimmt
+         */
+        public boolean check(String wort) {
+            if(ausgewaehlt == null) return false;
+
+            gesamt += 1;
+            if(ausgewaehlt.getWort().equalsIgnoreCase(wort)) {
+                auswaehlen();
+                richtig += 1;
+                return true;
+            }
+            return false;
+        }
+
+        /**
+         * Gibt die Wortliste zurück
+         * @return Die Wortliste
+         */
+        public Wort[] getWoerter() {
+            return woerter;
+        }
+
+        /**
+         * Setzt die Wortliste
+         * @param woerter Die neue Wortliste
+         */
+        public void setWoerter(Wort[] woerter) {
+            this.woerter = woerter;
+        }
+
+        /**
+         * Gibt das ausgewählte Wort zurück
+         * @return Das ausgewählte Wort
+         */
+        public Wort getAusgewaehlt() {
+            return ausgewaehlt;
+        }
 
 
-    /**
-     * Setzt die Anzahl des Richtig-Zählers
-     * @param richtig Die neue Anzahl
-     */
-    public void setRichtig(int richtig) {
-        this.richtig = richtig;
-    }
+        /**
+         * Setzt die Anzahl des Richtig-Zählers
+         * @param richtig Die neue Anzahl
+         */
+        public void setRichtig(int richtig) {
+            this.richtig = richtig;
+        }
 
-    /**
-     * Setzt die Anzahl des Gesamt-Zählers
-     * @param gesamt Die neue Anzahl
-     */
-    public void setGesamt(int gesamt) {
-        this.gesamt = gesamt;
-    }
+        /**
+         * Setzt die Anzahl des Gesamt-Zählers
+         * @param gesamt Die neue Anzahl
+         */
+        public void setGesamt(int gesamt) {
+            this.gesamt = gesamt;
+        }
 
-    /**
-     * Gibt den Richtig-Zähler zurück
-     * @return Den Richtig-Zähler
-     */
-    public int getRichtig() {
-        return richtig;
-    }
+        /**
+         * Gibt den Richtig-Zähler zurück
+         * @return Den Richtig-Zähler
+         */
+        public int getRichtig() {
+            return richtig;
+        }
 
-    /**
-     * Gibt den Gesamt-Zähler zurück
-     * @return Den Gesamt-Zähler
-     */
-    public int getGesamt() {
-        return gesamt;
-    }
+        /**
+         * Gibt den Gesamt-Zähler zurück
+         * @return Den Gesamt-Zähler
+         */
+        public int getGesamt() {
+            return gesamt;
+        }
 
-    /**
-     * Errechnet den Falsch-Zähler und gibt diesen zurück
-     * @return Den errechneten Falsch-Zähler
-     */
-    public int getFalsch() {
-        return gesamt-richtig;
-    }
+        /**
+         * Errechnet den Falsch-Zähler und gibt diesen zurück
+         * @return Den errechneten Falsch-Zähler
+         */
+        public int getFalsch() {
+            return gesamt-richtig;
+        }
 
-    /**
-     * Gibt die Statistik in String-Form zurück
-     * @return Die Statistik in String-Form
-     */
-    public String getStatistik() {
-        return "Statistik\nGesamt: "+getGesamt()+"\nRichtig: "+getRichtig()+"\nFalsch:"+getFalsch();
+        /**
+         * Gibt die Statistik in String-Form zurück
+         * @return Die Statistik in String-Form
+         */
+        public String getStatistik() {
+            return "Statistik\nGesamt: "+getGesamt()+"\nRichtig: "+getRichtig()+"\nFalsch:"+getFalsch();
+        }
     }
-}

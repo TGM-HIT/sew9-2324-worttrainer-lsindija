@@ -105,7 +105,8 @@ public class WorttrainerFrame extends JFrame {
 
             imageLabel.setIcon(new ImageIcon(imageIcon.getImage().getScaledInstance(scaledWidth, scaledHeight, Image.SCALE_DEFAULT)));
         } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
+            JOptionPane.showMessageDialog(null,"Das Bild kann nicht geladen werden. (Interner Fehler)");
+            e.printStackTrace();
         }
     }
 }

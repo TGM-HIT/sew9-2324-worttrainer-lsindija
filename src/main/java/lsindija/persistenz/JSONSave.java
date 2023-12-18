@@ -5,6 +5,7 @@ import lsindija.model.Wort;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -32,12 +33,14 @@ public class JSONSave implements PersistenceMethod {
             trainer.setGesamt(jsonObject.getInt("gesamt"));
             trainer.setRichtig(jsonObject.getInt("richtig"));
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            JOptionPane.showMessageDialog(null,"Spielstand konnte nicht geladen werden. Es wird ein neuer Spielstand erstellt.");
+            e.printStackTrace();
         }
         return trainer;
     }
 
     /**
+     * @see PersistenceMethod#save(Rechtschreibtrainer) 
      * Speichert den Worttrainer
      * @param trainer Der Worttrainer der gespeichert werden soll
      */
@@ -57,7 +60,8 @@ public class JSONSave implements PersistenceMethod {
             writer.flush();
             writer.close();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            JOptionPane.showMessageDialog(null,"Es ist ein Fehler beim Speichern aufgetreten");
+            e.printStackTrace();
         }
 
     }
